@@ -1,6 +1,0 @@
----
-# tasks file for common
-
-- name: Install libselinux-python
-  apt: name=python state=present
-#  apt: name=libselinux-python state=present
