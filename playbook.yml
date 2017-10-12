@@ -1,0 +1,24 @@
+# Run with: ansible-playbook -i hosts.yml magento.yml
+---
+- name: Install Magento 
+  remote_user: root
+  hosts: magento
+  sudo: true
+  vars_files:
+  - group_vars/all.yml
+
+- name: Install MySQL
+  hosts: db
+
+  roles:
+    - mysql
+
+- name: Install nginx, PHP-FPM, Varnish, memcached
+  hosts: web
+
+  roles:
+    - nginx
+    - php-fpm
+    - varnish
+    - memcache
+    - magento
