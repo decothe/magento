@@ -1,14 +1,14 @@
 
 ---
 
-- name: Install Varnish
+- name: Instalar Varnish
   apt: name=varnish state=present
   
-- name: Copy varnish configuration
+- name: Copiar configurações varnish
   template: src=varnish dest=/etc/default/varnish
 
-- name: Copy varnish vcl configuration
+- name: Copiar configurações vcl varnish
   template: src=default.vcl dest=/etc/varnish/default.vcl
 
-- name: Start varnish
+- name: Inicializar varnish
   service: name=varnish state=started enabled=yes
